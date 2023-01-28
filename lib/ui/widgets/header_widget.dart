@@ -42,9 +42,9 @@ class HeaderWidget extends StatelessWidget {
                         onChanged!(item);
                       },
                       child: Card(
-                          color: kcSecondaryColor,
+                          color: kcWhite,
                           margin: const EdgeInsets.symmetric(
-                              horizontal: 5, vertical: 3),
+                              horizontal: 4, vertical: 3),
                           clipBehavior: Clip.antiAlias,
                           elevation:
                               selectedMenuItem.title == item.title ? 6 : 0,
@@ -54,19 +54,19 @@ class HeaderWidget extends StatelessWidget {
                           shadowColor: kcPrimaryColor,
                           child: Padding(
                             padding: const EdgeInsets.symmetric(
-                                horizontal: 10, vertical: 10),
+                                horizontal: 0, vertical: 10),
                             child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.end,
+                              mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 horizontalSpaceTiny,
                                 Icon(
                                   item.iconData,
                                   color: selectedMenuItem.title == item.title
                                       ? kcPrimaryColor
-                                      : kcDarkGreyColor,
+                                      : kcDarkGreyColor.withOpacity(0.7),
                                   size: selectedMenuItem.title == item.title
                                       ? 22
-                                      : 20,
+                                      : 18,
                                 ),
                                 horizontalSpaceTiny,
                                 if (sizingInformation.screenSize.width > 800)
@@ -77,10 +77,10 @@ class HeaderWidget extends StatelessWidget {
                                           selectedMenuItem.title == item.title
                                               ? 15
                                               : 12,
-                                      color:
-                                          selectedMenuItem.title == item.title
-                                              ? kcPrimaryColor
-                                              : kcDarkGreyColor,
+                                      color: selectedMenuItem.title ==
+                                              item.title
+                                          ? kcPrimaryColor
+                                          : kcDarkGreyColor.withOpacity(0.7),
                                     ),
                                   )
                               ],
