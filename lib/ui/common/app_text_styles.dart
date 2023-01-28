@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:portfolio/ui/common/ui_helpers.dart';
 
 import 'app_colors.dart';
 
@@ -22,8 +23,8 @@ const TextStyle ktsAppTitleTextStyle =
     TextStyle(fontWeight: FontWeight.w600, color: kcWhite, fontSize: 28);
 const TextStyle ktsMediumDarkTextStyle = TextStyle(
     fontWeight: FontWeight.w400, color: kcDarkGreyColor, fontSize: 16);
-const TextStyle ktsSmallDarkTextStyle = TextStyle(
-    fontWeight: FontWeight.w400, color: kcDarkGreyColor, fontSize: 15);
+const TextStyle ktsSmallDarkTextStyle =
+    TextStyle(fontWeight: FontWeight.w400, color: kcDeepBlue, fontSize: 15);
 const TextStyle ktsBoldMeidumDarkTextStyle = TextStyle(
     fontWeight: FontWeight.w700, color: kcDarkGreyColor, fontSize: 16);
 const TextStyle ktsSmallWhiteTextStyle =
@@ -90,9 +91,9 @@ const double inputFieldSmallBottomMargin = 0;
 const EdgeInsets fieldPadding = EdgeInsets.symmetric(horizontal: 15);
 const EdgeInsets largeFieldPadding =
     EdgeInsets.symmetric(horizontal: 15, vertical: 15);
-EdgeInsets appSymmetricEdgePadding = const EdgeInsets.symmetric(
-  horizontal: 16,
-);
+EdgeInsets appSymmetricEdgePadding(BuildContext context) =>
+    EdgeInsets.symmetric(horizontal: screenWidth(context) / 40);
+
 EdgeInsets appLeftEdgePadding = const EdgeInsets.only(
   left: 16,
 );

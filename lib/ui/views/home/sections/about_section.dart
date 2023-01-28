@@ -88,7 +88,7 @@ class AboutSection extends StatelessWidget {
         ),
         if (screenwidth < 820)
           Padding(
-            padding: appSymmetricEdgePadding,
+            padding: appSymmetricEdgePadding(context),
             child: const About(),
           ),
       ],
@@ -152,7 +152,7 @@ class _BioTextsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: appSymmetricEdgePadding,
+      padding: appSymmetricEdgePadding(context),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.center,

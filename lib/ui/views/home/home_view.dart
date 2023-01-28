@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/ui/views/home/sections/footer_section.dart';
 import 'package:portfolio/ui/views/home/sections/header_section.dart';
 import 'package:portfolio/ui/views/home/sections/skills_section.dart';
 import 'package:portfolio/ui/views/home/sections/testimony_section.dart';
@@ -14,7 +13,7 @@ class HomeView extends StackedView<HomeViewModel> {
   HomeView({Key? key}) : super(key: key);
   final projectsKey = GlobalKey();
   final homeKey = GlobalKey();
-  final serviceKey = GlobalKey();
+  final testimonyKey = GlobalKey();
   final skillsKey = GlobalKey();
   final contactKey = GlobalKey();
 
@@ -40,7 +39,7 @@ class HomeView extends StackedView<HomeViewModel> {
                 homeKey: homeKey,
                 projectsKey: projectsKey,
                 skillsKey: skillsKey,
-                serviceKey: serviceKey,
+                testimonyKey: testimonyKey,
                 contactKey: contactKey,
               ),
               Expanded(
@@ -72,11 +71,11 @@ class HomeView extends StackedView<HomeViewModel> {
                         verticalSpaceLarge,
 
                         /// This is the testimony section
-                        TestimonySection(serviceKey: serviceKey),
+                        TestimonySection(serviceKey: testimonyKey),
                         verticalSpaceMassive,
 
                         /// This is the footer section
-                        const FooterSection()
+                        //const FooterSection()
                       ],
                     )),
               ),

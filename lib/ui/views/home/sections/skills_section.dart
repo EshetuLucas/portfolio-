@@ -85,7 +85,7 @@ class _SkillsWidget extends StatelessWidget {
         Text(
           'Skills',
           style: ktsLargDarkTextStyle.copyWith(
-            color: kcDarkGreyColor.withOpacity(0.8),
+            color: kcDeepBlue,
             fontSize: getResponsiveFontSize(
               context,
               minFont: 20,
@@ -136,7 +136,6 @@ class _SkillsWidget extends StatelessWidget {
 
 class _ExperienceWidget extends StatelessWidget {
   const _ExperienceWidget({
-    super.key,
     required this.companyName,
     required this.date,
     required this.description,
@@ -149,55 +148,92 @@ class _ExperienceWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(date),
-            horizontalSpaceMedium,
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    companyName,
-                    style: ktsLargDarkTextStyle.copyWith(
-                      color: kcPrimaryColor,
-                      fontSize: getResponsiveFontSize(
-                        context,
-                        minFont: 13,
-                        maxFont: 20,
-                      ),
+    return Padding(
+      padding: appSymmetricEdgePadding(context),
+      child: Column(
+        children: [
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              if (screenWidth(context) > 500) ...[
+                Text(
+                  date,
+                  style: ktsSmallDarkTextStyle.copyWith(
+                    color: kcPrimaryColor.withOpacity(0.8),
+                    fontSize: getResponsiveFontSize(
+                      context,
+                      minFont: 11,
+                      maxFont: 14,
                     ),
                   ),
-                  Text(
-                    role,
-                    style: ktsLargDarkTextStyle.copyWith(
-                      color: kcPrimaryColor.withOpacity(0.6),
-                      fontSize: getResponsiveFontSize(
-                        context,
-                        minFont: 11,
-                        maxFont: 14,
+                ),
+                horizontalSpaceMedium,
+              ],
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      companyName,
+                      style: ktsLargDarkTextStyle.copyWith(
+                        color: kcPrimaryColor,
+                        fontSize: getResponsiveFontSize(
+                          context,
+                          minFont: 13,
+                          maxFont: 20,
+                        ),
                       ),
                     ),
-                  ),
-                  verticalSpaceTiny,
-                  Text(description)
-                ],
-              ),
-            )
-          ],
-        ),
-      ],
+                    Text(
+                      role,
+                      style: ktsLargDarkTextStyle.copyWith(
+                        color: kcPrimaryColor.withOpacity(0.6),
+                        fontSize: getResponsiveFontSize(
+                          context,
+                          minFont: 11,
+                          maxFont: 14,
+                        ),
+                      ),
+                    ),
+                    verticalSpaceTiny,
+                    if (screenWidth(context) <= 500) ...[
+                      Text(
+                        date,
+                        style: ktsSmallDarkTextStyle.copyWith(
+                          color: kcPrimaryColor.withOpacity(0.6),
+                          fontSize: getResponsiveFontSize(
+                            context,
+                            minFont: 11,
+                            maxFont: 14,
+                          ),
+                        ),
+                      ),
+                      verticalSpaceSmall,
+                    ],
+                    Text(
+                      description,
+                      style: ktsSmallDarkTextStyle.copyWith(
+                        color: kcDeepBlue,
+                        fontSize: getResponsiveFontSize(
+                          context,
+                          minFont: 11,
+                          maxFont: 14,
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              )
+            ],
+          ),
+        ],
+      ),
     );
   }
 }
 
 class _ExperiencesWidget extends StatelessWidget {
-  const _ExperiencesWidget({
-    super.key,
-  });
+  const _ExperiencesWidget();
 
   @override
   Widget build(BuildContext context) {
@@ -209,7 +245,7 @@ class _ExperiencesWidget extends StatelessWidget {
           Text(
             'Experience',
             style: ktsLargDarkTextStyle.copyWith(
-              color: kcDarkGreyColor.withOpacity(0.8),
+              color: kcDeepBlue,
               fontSize: getResponsiveFontSize(
                 context,
                 minFont: 20,

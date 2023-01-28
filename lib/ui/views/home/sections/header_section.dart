@@ -12,14 +12,14 @@ class HeaderSection extends ViewModelWidget<HomeViewModel> {
     required this.homeKey,
     required this.projectsKey,
     required this.skillsKey,
-    required this.serviceKey,
+    required this.testimonyKey,
     required this.contactKey,
   });
 
   final GlobalKey<State<StatefulWidget>> homeKey;
   final GlobalKey<State<StatefulWidget>> projectsKey;
   final GlobalKey<State<StatefulWidget>> skillsKey;
-  final GlobalKey<State<StatefulWidget>> serviceKey;
+  final GlobalKey<State<StatefulWidget>> testimonyKey;
   final GlobalKey<State<StatefulWidget>> contactKey;
 
   void duka(GlobalKey<State<StatefulWidget>> key, BuildContext context) {
@@ -37,7 +37,7 @@ class HeaderSection extends ViewModelWidget<HomeViewModel> {
         children: [
           verticalSpaceMedium,
           Padding(
-            padding: appSymmetricEdgePadding,
+            padding: appSymmetricEdgePadding(context),
             child: HeaderWidget(
               selectedMenuItem: viewModel.selectedMenuItem,
               onChanged: (menuItem) {
@@ -54,8 +54,8 @@ class HeaderSection extends ViewModelWidget<HomeViewModel> {
                   case 'Skills':
                     key = skillsKey;
                     break;
-                  case 'Service':
-                    key = serviceKey;
+                  case 'Testimony':
+                    key = testimonyKey;
                     break;
                   case 'Contact':
                     key = contactKey;

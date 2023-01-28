@@ -39,7 +39,7 @@ class ProjectsSection extends ViewModelWidget<HomeViewModel> {
         ConstrainedBox(
           constraints: const BoxConstraints(maxWidth: 1500),
           child: Padding(
-            padding: appSymmetricEdgePadding,
+            padding: appSymmetricEdgePadding(context),
             child: Wrap(
               spacing: 8,
               children: [
