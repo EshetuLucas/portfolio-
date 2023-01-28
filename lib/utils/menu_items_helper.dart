@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 
 class AppsMenuItem {
@@ -18,8 +19,8 @@ class AppsMenuItem {
   static List<AppsMenuItem> get menuItems => [
         AppsMenuItem(
           uri: '/tasks',
-          title: 'Home',
-          iconData: Icons.home,
+          title: 'About',
+          iconData: FontAwesomeIcons.info,
         ),
         AppsMenuItem(
           uri: '/projects',
@@ -28,12 +29,12 @@ class AppsMenuItem {
         ),
         AppsMenuItem(
           uri: '/teams',
-          title: 'Journey',
-          iconData: CupertinoIcons.group,
+          title: 'Skills',
+          iconData: Icons.design_services_rounded,
         ),
         AppsMenuItem(
           uri: '/teams',
-          title: 'Service',
+          title: 'Testimony',
           iconData: Icons.design_services_rounded,
         ),
         AppsMenuItem(
