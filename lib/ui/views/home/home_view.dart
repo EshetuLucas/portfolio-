@@ -45,6 +45,7 @@ class HomeView extends StackedView<HomeViewModel> {
               ),
               Expanded(
                 child: SingleChildScrollView(
+                    padding: EdgeInsets.zero,
                     physics: const ClampingScrollPhysics(),
                     child: Column(
                       children: [
