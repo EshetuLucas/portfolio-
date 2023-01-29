@@ -1,5 +1,5 @@
-# stacked_app
-Check out the demo: https://www.loom.com/share/15f1f7574c0545039f124aa5ea49f3f1
+# Flutter portfolio web app
+Check out the demo: https://www.loom.com/share/db640e49812442b0899da6d64279bff6
 A new Flutter project.
 
 ## Getting Started
