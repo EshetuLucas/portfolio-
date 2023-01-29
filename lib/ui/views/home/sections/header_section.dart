@@ -73,7 +73,9 @@ class HeaderSection extends ViewModelWidget<HomeViewModel> {
               },
             ),
           ),
-          verticalSpaceSmall,
+          SizedBox(
+            height: screenHeight(context) / 90,
+          ),
         ],
       ),
     );

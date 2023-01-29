@@ -44,15 +44,35 @@ class AboutSection extends StatelessWidget {
                   screenwidth < 440
                       ? Column(
                           children: [
-                            SizedBox(
-                              height: getResponsiveSize(context) / 3,
-                              width: getResponsiveSize(context),
-                              child: const ImageWidget(
-                                fit: BoxFit.contain,
-                              ),
+                            Row(
+                              children: [
+                                Expanded(
+                                  child: SizedBox(
+                                    height: getResponsiveSize(context) / 3,
+                                    child: Container(
+                                      clipBehavior: Clip.antiAlias,
+                                      decoration: const BoxDecoration(
+                                        shape: BoxShape.circle,
+                                      ),
+                                      child: const Padding(
+                                        padding: EdgeInsets.all(2.0),
+                                        child: ImageWidget(
+                                          fit: BoxFit.contain,
+                                          imagePath:
+                                              'assets/images/placeholder1.png',
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                const Expanded(
+                                  child: _NameWidget(),
+                                )
+                              ],
                             ),
-                            const _BioTextsWidget(
+                            _BioTextsWidget(
                               showAbout: false,
+                              screenWidth: screenwidth,
                             ),
                           ],
                         )
@@ -66,6 +86,7 @@ class AboutSection extends StatelessWidget {
                               Expanded(
                                 child: _BioWidget(
                                   showAbout: screenwidth >= 820,
+                                  screenwidth: screenwidth,
                                 ),
                               ),
                               Expanded(
@@ -74,7 +95,7 @@ class AboutSection extends StatelessWidget {
                                   height: getResponsiveSize(context) / 2,
                                   width: getResponsiveSize(context) / 2.5,
                                   child: const ImageWidget(
-                                    fit: BoxFit.fitHeight,
+                                    fit: BoxFit.contain,
                                   ),
                                 ),
                               ),
@@ -96,13 +117,52 @@ class AboutSection extends StatelessWidget {
   }
 }
 
+class _NameWidget extends StatelessWidget {
+  const _NameWidget({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          "Hello",
+          style: ktsSmallDarkTextStyle.copyWith(
+            fontSize: getResponsiveFontSize(
+              context,
+              minFont: 11,
+              maxFont: 17,
+            ),
+          ),
+        ),
+        Text(
+          'I\'M Eshetu Lukas',
+          style: ktsLargDarkTextStyle.copyWith(
+            color: kcPrimaryColor,
+            fontSize: getResponsiveFontSize(
+              context,
+              minFont: 12,
+              maxFont: 60,
+            ),
+          ),
+        ),
+        verticalSpaceTiny,
+      ],
+    );
+  }
+}
+
 class _BioWidget extends StatelessWidget {
   const _BioWidget({
     required this.showAbout,
+    required this.screenwidth,
     Key? key,
   }) : super(key: key);
 
   final bool showAbout;
+  final double screenwidth;
 
   @override
   Widget build(BuildContext context) {
@@ -125,6 +185,7 @@ class _BioWidget extends StatelessWidget {
               padding: const EdgeInsets.all(8),
               child: _BioTextsWidget(
                 showAbout: showAbout,
+                screenWidth: screenwidth,
               ),
             ),
           ),
@@ -144,10 +205,12 @@ class _BioWidget extends StatelessWidget {
 class _BioTextsWidget extends StatelessWidget {
   const _BioTextsWidget({
     required this.showAbout,
+    required this.screenWidth,
     Key? key,
   }) : super(key: key);
 
   final bool showAbout;
+  final double screenWidth;
 
   @override
   Widget build(BuildContext context) {
@@ -157,27 +220,7 @@ class _BioTextsWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(
-            "Hello",
-            style: ktsSmallDarkTextStyle.copyWith(
-              fontSize: getResponsiveFontSize(
-                context,
-                minFont: 12,
-                maxFont: 17,
-              ),
-            ),
-          ),
-          Text(
-            'I\'M Eshetu Lukas',
-            style: ktsLargDarkTextStyle.copyWith(
-              color: kcPrimaryColor,
-              fontSize: getResponsiveFontSize(
-                context,
-                minFont: 20,
-                maxFont: 60,
-              ),
-            ),
-          ),
+          if (screenWidth > 440) const _NameWidget(),
           Text(
             "Software Developer | Specialized in Flutter, Firebase and Web | Building World-Class mobile apps",
             style: ktsSmallDarkTextStyle.copyWith(
