@@ -1,16 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/app/app.locator.dart';
+import 'package:portfolio/app/app.router.dart';
 import 'package:portfolio/ui/common/app_colors.dart';
-import 'package:portfolio/ui/setup/setup_bottom_sheet_ui.dart';
-import 'package:portfolio/ui/setup/setup_dialog_ui.dart';
-import 'package:stacked_services/stacked_services.dart';
 
-import 'app/app.router.dart';
+import 'package:stacked_services/stacked_services.dart';
 
 void main() {
   setupLocator();
-  setupDialogUi();
-  setupBottomSheetUi();
 
   runApp(const MyApp());
 }
@@ -21,7 +17,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Eshetu Lukas',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         splashColor: Colors.transparent,
@@ -36,7 +32,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      initialRoute: Routes.startupView,
+      initialRoute: Routes.homeView,
       onGenerateRoute: StackedRouter().onGenerateRoute,
       navigatorKey: StackedService.navigatorKey,
       navigatorObservers: [

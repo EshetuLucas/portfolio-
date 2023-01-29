@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/ui/views/home/sections/footer_section.dart';
 import 'package:portfolio/ui/views/home/sections/header_section.dart';
 import 'package:portfolio/ui/views/home/sections/skills_section.dart';
 import 'package:portfolio/ui/views/home/sections/testimony_section.dart';
@@ -75,7 +76,11 @@ class HomeView extends StackedView<HomeViewModel> {
                         verticalSpaceMassive,
 
                         /// This is the footer section
-                        //const FooterSection()
+                        FooterSection(
+                          contactKey: contactKey,
+                        ),
+
+                        verticalSpaceMedium,
                       ],
                     )),
               ),

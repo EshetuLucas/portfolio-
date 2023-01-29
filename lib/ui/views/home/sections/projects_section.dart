@@ -97,8 +97,7 @@ class ProjectsSection extends ViewModelWidget<HomeViewModel> {
             child: Wrap(
               children: [
                 _OtherWidget(
-                  onTap: () => viewModel.onLinkTap(
-                      'https://play.google.com/store/apps/details?id=com.ethiolearning.et&hl=en&gl=US'),
+                  onTap: () => {},
                   link:
                       'https://play.google.com/store/apps/details?id=com.ethiolearning.et&hl=en&gl=US',
                   description:
@@ -109,8 +108,7 @@ class ProjectsSection extends ViewModelWidget<HomeViewModel> {
                   fit: BoxFit.cover,
                 ),
                 _OtherWidget(
-                  onTap: () => viewModel.onLinkTap(
-                      'https://play.google.com/store/apps/details?id=com.ethiolearning.et&hl=en&gl=US'),
+                  onTap: () => {},
                   link:
                       'https://play.google.com/store/apps/details?id=com.ethiolearning.et&hl=en&gl=US',
                   description:
@@ -120,8 +118,7 @@ class ProjectsSection extends ViewModelWidget<HomeViewModel> {
                   imageHeight: imageHeightOtherProjects,
                 ),
                 _OtherWidget(
-                  onTap: () => viewModel.onLinkTap(
-                      'https://play.google.com/store/apps/details?id=com.ethiolearning.et&hl=en&gl=US'),
+                  onTap: () => {},
                   link:
                       'https://play.google.com/store/apps/details?id=com.ethiolearning.et&hl=en&gl=US',
                   description:
@@ -132,8 +129,7 @@ class ProjectsSection extends ViewModelWidget<HomeViewModel> {
                   fit: BoxFit.cover,
                 ),
                 _OtherWidget(
-                  onTap: () => viewModel.onLinkTap(
-                      'https://play.google.com/store/apps/details?id=com.Mechot.sanitation&hl=en&gl=US'),
+                  onTap: () => {},
                   link:
                       'https://play.google.com/store/apps/details?id=com.Mechot.sanitation&hl=en&gl=US',
                   description:

@@ -22,5 +22,6 @@ const Color kcLightBlue = Color(0xFF144A7C);
 const Color kcAppBackgroundColor = Color(0xFFF3F6FB);
 const Color kcAppBackgroundColor2 = Color(0xFF0A1824);
 const Color kcItemsBackground = Color(0xFF293f4e);
-const Color kcLDeepGreen = Color(0xFF09663E);
+const Color kcLDeepGreen = Color(0xFF075e54);
 const Color kcDeepBlue = Color(0xFF264564);
+const Color kcBlue = Color(0xFF0072b1);
