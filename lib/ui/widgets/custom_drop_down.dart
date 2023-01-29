@@ -2,6 +2,7 @@ import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/ui/common/app_colors.dart';
 import 'package:portfolio/ui/common/app_text_styles.dart';
+import 'package:portfolio/ui/common/ui_helpers.dart';
 import 'package:portfolio/utils/menu_items_helper.dart';
 
 class CustomDropDown extends StatelessWidget {
@@ -32,13 +33,14 @@ class CustomDropDown extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final iconHeight = screenHeightFraction(context, dividedBy: 7);
     return DropdownButtonHideUnderline(
       child: DropdownButton2(
         hint: hint,
         customButton: hint ??
-            const Icon(
+            Icon(
               Icons.menu_rounded,
-              size: 40,
+              size: iconHeight > 40 ? 40 : iconHeight,
               color: kcPrimaryColor,
             ),
         buttonHeight: buttonHeight,

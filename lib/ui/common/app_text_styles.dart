@@ -24,7 +24,7 @@ const TextStyle ktsAppTitleTextStyle =
 const TextStyle ktsMediumDarkTextStyle = TextStyle(
     fontWeight: FontWeight.w400, color: kcDarkGreyColor, fontSize: 16);
 const TextStyle ktsSmallDarkTextStyle =
-    TextStyle(fontWeight: FontWeight.w400, color: kcDeepBlue, fontSize: 15);
+    TextStyle(color: kcDeepBlue, fontSize: 15, fontFamily: 'Poppins');
 const TextStyle ktsBoldMeidumDarkTextStyle = TextStyle(
     fontWeight: FontWeight.w700, color: kcDarkGreyColor, fontSize: 16);
 const TextStyle ktsSmallWhiteTextStyle =

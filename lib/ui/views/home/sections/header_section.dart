@@ -35,7 +35,9 @@ class HeaderSection extends ViewModelWidget<HomeViewModel> {
       color: kcWhite,
       child: Column(
         children: [
-          verticalSpaceMedium,
+          SizedBox(
+            height: screenHeight(context) / 30,
+          ),
           Padding(
             padding: appSymmetricEdgePadding(context),
             child: HeaderWidget(
