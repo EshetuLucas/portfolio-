@@ -18,16 +18,20 @@ class HeaderWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final headerHeight = screenHeightFraction(context, dividedBy: 10);
+
     return SizedBox(
-        height: 45,
+        height: headerHeight < 40 ? headerHeight : 40,
         child: ResponsiveBuilder(
           builder: (context, sizingInformation) => Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
                 'PORTFOLIO',
-                style:
-                    ktsBoldMeidumDarkTextStyle.copyWith(color: kcPrimaryColor),
+                style: ktsBoldMeidumDarkTextStyle.copyWith(
+                  color: kcPrimaryColor,
+                  fontSize: getResponsiveFontSize(context, maxFont: 23),
+                ),
               ),
               const Spacer(),
               if (sizingInformation.screenSize.width < 540)
@@ -44,10 +48,10 @@ class HeaderWidget extends StatelessWidget {
                       child: Card(
                           color: kcWhite,
                           margin: const EdgeInsets.symmetric(
-                              horizontal: 4, vertical: 3),
+                              horizontal: 4, vertical: 0),
                           clipBehavior: Clip.antiAlias,
                           elevation:
-                              selectedMenuItem.title == item.title ? 6 : 0,
+                              selectedMenuItem.title == item.title ? 0 : 0,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(2),
                           ),
