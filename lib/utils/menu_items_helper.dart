@@ -1,7 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:get/get.dart';
 
 class AppsMenuItem {
   final String title;
@@ -47,12 +45,12 @@ class AppsMenuItem {
   static List<AppsMenuItem> get languages => [
         AppsMenuItem(
           uri: '',
-          title: 'english'.tr,
+          title: 'English',
           locale: const Locale('en', 'US'),
         ),
         AppsMenuItem(
           uri: '',
-          title: 'arabic'.tr,
+          title: 'Arabic',
           locale: const Locale('ar', 'AE'),
         ),
       ];

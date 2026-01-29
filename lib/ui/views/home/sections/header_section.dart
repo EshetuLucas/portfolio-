@@ -4,9 +4,9 @@ import 'package:portfolio/ui/common/app_text_styles.dart';
 import 'package:portfolio/ui/common/ui_helpers.dart';
 import 'package:portfolio/ui/views/home/home_viewmodel.dart';
 import 'package:portfolio/ui/widgets/header_widget.dart';
-import 'package:stacked/stacked.dart';
+import 'package:provider/provider.dart';
 
-class HeaderSection extends ViewModelWidget<HomeViewModel> {
+class HeaderSection extends StatelessWidget {
   const HeaderSection({
     super.key,
     required this.homeKey,
@@ -30,7 +30,8 @@ class HeaderSection extends ViewModelWidget<HomeViewModel> {
   }
 
   @override
-  Widget build(BuildContext context, HomeViewModel viewModel) {
+  Widget build(BuildContext context) {
+    final viewModel = context.watch<HomeViewModel>();
     return ColoredBox(
       color: kcWhite,
       child: Column(

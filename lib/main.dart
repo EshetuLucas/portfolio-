@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/app/app.locator.dart';
-import 'package:portfolio/app/app.router.dart';
+import 'package:portfolio/service/url_launcher_service.dart';
 import 'package:portfolio/ui/common/app_colors.dart';
-
-import 'package:stacked_services/stacked_services.dart';
+import 'package:portfolio/ui/views/home/home_view.dart';
+import 'package:portfolio/ui/views/home/home_viewmodel.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  setupLocator();
-
   runApp(const MyApp());
 }
 
@@ -16,28 +14,33 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Eshetu Lukas',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        splashColor: Colors.transparent,
-        highlightColor: Colors.transparent,
-        hoverColor: Colors.transparent,
-        fontFamily: 'Poppins',
-        scaffoldBackgroundColor: kcWhite,
-        textTheme: const TextTheme(
-          bodyText2: TextStyle(
-            fontSize: 14.0,
-            color: kcDarkGreyColor,
+    return MultiProvider(
+      providers: [
+        Provider(create: (_) => UrlLauncherService()),
+        ChangeNotifierProvider(
+          create: (context) => HomeViewModel(
+            urlLauncherService: context.read<UrlLauncherService>(),
           ),
         ),
-      ),
-      initialRoute: Routes.homeView,
-      onGenerateRoute: StackedRouter().onGenerateRoute,
-      navigatorKey: StackedService.navigatorKey,
-      navigatorObservers: [
-        StackedService.routeObserver,
       ],
+      child: MaterialApp(
+        title: 'Eshetu Lukas',
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          splashColor: Colors.transparent,
+          highlightColor: Colors.transparent,
+          hoverColor: Colors.transparent,
+          fontFamily: 'Poppins',
+          scaffoldBackgroundColor: kcWhite,
+          textTheme: const TextTheme(
+            bodyMedium: TextStyle(
+              fontSize: 14.0,
+              color: kcDarkGreyColor,
+            ),
+          ),
+        ),
+        home: HomeView(),
+      ),
     );
   }
 }

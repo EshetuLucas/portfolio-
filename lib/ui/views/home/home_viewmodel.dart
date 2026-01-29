@@ -1,10 +1,12 @@
+import 'package:flutter/material.dart';
 import 'package:portfolio/service/url_launcher_service.dart';
 import 'package:portfolio/utils/menu_items_helper.dart';
-import 'package:stacked/stacked.dart';
-import 'package:portfolio/app/app.locator.dart';
 
-class HomeViewModel extends BaseViewModel {
-  final _urlLauncherService = locator<UrlLauncherService>();
+class HomeViewModel extends ChangeNotifier {
+  final UrlLauncherService _urlLauncherService;
+
+  HomeViewModel({required UrlLauncherService urlLauncherService})
+      : _urlLauncherService = urlLauncherService;
 
   AppsMenuItem _selectedMenuItem = AppsMenuItem.menuItems.first;
   AppsMenuItem get selectedMenuItem => _selectedMenuItem;
@@ -13,7 +15,6 @@ class HomeViewModel extends BaseViewModel {
 
   void onMouseEnter(String value) {
     title = value;
-
     notifyListeners();
   }
 
@@ -23,8 +24,10 @@ class HomeViewModel extends BaseViewModel {
   }
 
   void onChange(AppsMenuItem? item) {
-    _selectedMenuItem = item!;
-    notifyListeners();
+    if (item != null) {
+      _selectedMenuItem = item;
+      notifyListeners();
+    }
   }
 
   void onLinkTap(String link) {

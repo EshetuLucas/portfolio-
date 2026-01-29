@@ -1,20 +1,12 @@
-import 'dart:io';
-import 'package:portfolio/app/app.logger.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class UrlLauncherService {
-  final log = getLogger('UrlLauncherService');
-
   Future<void> openLink(String url) async {
-    log.i('url:$url');
     final Uri linkUri = Uri.parse(url);
-    final urlString = linkUri;
-    log.i('urlString:$urlString');
-
-    if (await canLaunchUrl(urlString)) {
-      await launchUrl(urlString);
+    if (await canLaunchUrl(linkUri)) {
+      await launchUrl(linkUri);
     } else {
-      throw UrlLauncherServiceException('Could not launch email client');
+      throw UrlLauncherServiceException('Could not launch $url');
     }
   }
 
@@ -22,15 +14,13 @@ class UrlLauncherService {
     if (email == null || email.isEmpty) {
       return;
     }
-    log.i('email:$email');
     final Uri emailLaunchUri = Uri(
       scheme: 'mailto',
       path: email,
     );
-    final emailLaunchUrlString = emailLaunchUri;
 
-    if (await canLaunchUrl(emailLaunchUrlString)) {
-      await launchUrl(emailLaunchUrlString);
+    if (await canLaunchUrl(emailLaunchUri)) {
+      await launchUrl(emailLaunchUri);
     } else {
       throw UrlLauncherServiceException('Could not launch email client');
     }
@@ -40,12 +30,10 @@ class UrlLauncherService {
     if (phoneNumber == null || phoneNumber.isEmpty) {
       return;
     }
-    log.i('phoneNumber:$phoneNumber');
     final Uri launchUri = Uri(
       scheme: 'tel',
       path: phoneNumber,
     );
-    log.v(launchUri);
     await launchUrl(launchUri);
   }
 
@@ -54,7 +42,6 @@ class UrlLauncherService {
     if (phoneNumber == null || phoneNumber.isEmpty) {
       return;
     }
-    log.i('phoneNumber:$phoneNumber');
     final Uri smsUri = Uri(
       scheme: 'sms',
       path: phoneNumber,
@@ -72,23 +59,10 @@ class UrlLauncherService {
       return;
     }
 
-    final whatsappUrlAndroid = Uri.parse('whatsapp://send?phone=$phoneNumber');
+    final whatsappUrl = Uri.parse('https://wa.me/$phoneNumber');
 
-    final whatsappUrlIOS = Uri.parse('https://wa.me/$phoneNumber');
-
-    switch (Platform.operatingSystem) {
-      case 'android':
-        if (await canLaunchUrl(whatsappUrlAndroid)) {
-          await launchUrl(whatsappUrlAndroid);
-        } else {}
-        break;
-      case 'ios':
-        if (await canLaunchUrl(whatsappUrlIOS)) {
-          await launchUrl(whatsappUrlIOS);
-        } else {}
-        break;
-      default:
-        break;
+    if (await canLaunchUrl(whatsappUrl)) {
+      await launchUrl(whatsappUrl);
     }
   }
 

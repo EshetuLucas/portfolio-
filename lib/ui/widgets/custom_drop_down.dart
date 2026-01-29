@@ -43,52 +43,58 @@ class CustomDropDown extends StatelessWidget {
               size: iconHeight > 40 ? 40 : iconHeight,
               color: kcPrimaryColor,
             ),
-        buttonHeight: buttonHeight,
-        buttonWidth: 5,
-        itemHeight: itemHeight,
-        items: [
-          ...items.map(
-            (item) => DropdownMenuItem<AppsMenuItem>(
-              value: item,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8),
-                child: ListTile(
-                  leading: item.iconData != null
-                      ? Icon(
-                          item.iconData,
-                          color: kcPrimaryColor,
-                          size: 23,
-                        )
-                      : null,
-                  title: Text(
-                    item.title,
-                    style: ktsSmallDarkTextStyle.copyWith(
-                      fontSize: 12,
-                      color: textColor,
+        items: items
+            .map(
+              (item) => DropdownMenuItem<AppsMenuItem>(
+                value: item,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8),
+                  child: ListTile(
+                    leading: item.iconData != null
+                        ? Icon(
+                            item.iconData,
+                            color: kcPrimaryColor,
+                            size: 23,
+                          )
+                        : null,
+                    title: Text(
+                      item.title,
+                      style: ktsSmallDarkTextStyle.copyWith(
+                        fontSize: 12,
+                        color: textColor,
+                      ),
                     ),
                   ),
                 ),
               ),
-            ),
-          ),
-        ],
+            )
+            .toList(),
         onChanged: (value) {
           onChanged?.call(value as AppsMenuItem);
         },
-        itemPadding: const EdgeInsets.only(left: 10, right: 10),
-        dropdownWidth: dropdownWidth,
-        dropdownPadding: const EdgeInsets.symmetric(vertical: 10),
-        dropdownDecoration: BoxDecoration(
-          borderRadius: borderRadius ??
-              const BorderRadius.only(
-                bottomLeft: Radius.circular(10),
-                bottomRight: Radius.circular(10),
-                topLeft: Radius.circular(10),
-              ),
-          color: backgroundColor,
+        buttonStyleData: ButtonStyleData(
+          height: buttonHeight,
+          width: 5,
         ),
-        dropdownElevation: 8,
-        offset: offset,
+        menuItemStyleData: const MenuItemStyleData(
+          height: 70,
+          padding: EdgeInsets.only(left: 10, right: 10),
+        ),
+        dropdownStyleData: DropdownStyleData(
+          width: dropdownWidth,
+          padding: const EdgeInsets.symmetric(vertical: 10),
+          decoration: BoxDecoration(
+            borderRadius: borderRadius ??
+                const BorderRadius.only(
+                  bottomLeft: Radius.circular(10),
+                  bottomRight: Radius.circular(10),
+                  topLeft: Radius.circular(10),
+                ),
+            color: backgroundColor,
+          ),
+          elevation: 8,
+          offset: offset,
+        ),
       ),
     );
   }

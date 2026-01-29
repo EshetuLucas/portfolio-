@@ -4,13 +4,11 @@ import 'package:portfolio/ui/views/home/sections/header_section.dart';
 import 'package:portfolio/ui/views/home/sections/skills_section.dart';
 import 'package:portfolio/ui/views/home/sections/testimony_section.dart';
 import 'package:responsive_builder/responsive_builder.dart';
-import 'package:stacked/stacked.dart';
 import 'package:portfolio/ui/common/ui_helpers.dart';
-import 'home_viewmodel.dart';
 import 'sections/about_section.dart';
 import 'sections/projects_section.dart';
 
-class HomeView extends StackedView<HomeViewModel> {
+class HomeView extends StatelessWidget {
   HomeView({Key? key}) : super(key: key);
   final projectsKey = GlobalKey();
   final homeKey = GlobalKey();
@@ -19,11 +17,7 @@ class HomeView extends StackedView<HomeViewModel> {
   final contactKey = GlobalKey();
 
   @override
-  Widget builder(
-    BuildContext context,
-    HomeViewModel viewModel,
-    Widget? child,
-  ) {
+  Widget build(BuildContext context) {
     double arcShape = getResponsiveSize(context) / 30;
 
     double imageHeight =
@@ -91,10 +85,4 @@ class HomeView extends StackedView<HomeViewModel> {
       ),
     );
   }
-
-  @override
-  HomeViewModel viewModelBuilder(
-    BuildContext context,
-  ) =>
-      HomeViewModel();
 }

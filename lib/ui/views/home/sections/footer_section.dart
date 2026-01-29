@@ -5,15 +5,16 @@ import 'package:portfolio/ui/common/app_text_styles.dart';
 import 'package:portfolio/ui/common/ui_helpers.dart';
 import 'package:portfolio/ui/views/home/home_viewmodel.dart';
 import 'package:portfolio/ui/widgets/image_builder.dart';
-import 'package:stacked/stacked.dart';
+import 'package:provider/provider.dart';
 
-class FooterSection extends ViewModelWidget<HomeViewModel> {
+class FooterSection extends StatelessWidget {
   const FooterSection({super.key, required this.contactKey});
 
   final GlobalKey<State<StatefulWidget>> contactKey;
 
   @override
-  Widget build(BuildContext context, HomeViewModel viewModel) {
+  Widget build(BuildContext context) {
+    final viewModel = context.watch<HomeViewModel>();
     return Padding(
       padding: appSymmetricEdgePadding(context),
       child: Column(

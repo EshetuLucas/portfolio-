@@ -4,9 +4,9 @@ import 'package:portfolio/ui/common/app_text_styles.dart';
 import 'package:portfolio/ui/common/ui_helpers.dart';
 import 'package:portfolio/ui/views/home/home_viewmodel.dart';
 import 'package:portfolio/ui/widgets/image_builder.dart';
-import 'package:stacked/stacked.dart';
+import 'package:provider/provider.dart';
 
-class ProjectsSection extends ViewModelWidget<HomeViewModel> {
+class ProjectsSection extends StatelessWidget {
   const ProjectsSection({
     super.key,
     required this.projectsKey,
@@ -19,7 +19,8 @@ class ProjectsSection extends ViewModelWidget<HomeViewModel> {
   final double imageHeightOtherProjects;
 
   @override
-  Widget build(BuildContext context, HomeViewModel viewModel) {
+  Widget build(BuildContext context) {
+    final viewModel = context.watch<HomeViewModel>();
     return Column(
       children: [
         Text(
@@ -145,7 +146,7 @@ class ProjectsSection extends ViewModelWidget<HomeViewModel> {
   }
 }
 
-class _ProjectsWidget extends ViewModelWidget<HomeViewModel> {
+class _ProjectsWidget extends StatelessWidget {
   const _ProjectsWidget({
     Key? key,
     required this.imageHeight,
@@ -164,7 +165,8 @@ class _ProjectsWidget extends ViewModelWidget<HomeViewModel> {
   final Function()? onTap;
 
   @override
-  Widget build(BuildContext context, HomeViewModel viewModel) {
+  Widget build(BuildContext context) {
+    final viewModel = context.watch<HomeViewModel>();
     return MouseRegion(
       key: Key(title),
       onEnter: (_) => viewModel.onMouseEnter(title),
@@ -264,7 +266,7 @@ class _ProjectsWidget extends ViewModelWidget<HomeViewModel> {
   }
 }
 
-class _OtherWidget extends ViewModelWidget<HomeViewModel> {
+class _OtherWidget extends StatelessWidget {
   const _OtherWidget(
       {Key? key,
       required this.imageHeight,
@@ -284,7 +286,8 @@ class _OtherWidget extends ViewModelWidget<HomeViewModel> {
   final BoxFit fit;
   final Function()? onTap;
   @override
-  Widget build(BuildContext context, HomeViewModel viewModel) {
+  Widget build(BuildContext context) {
+    final viewModel = context.watch<HomeViewModel>();
     return MouseRegion(
       key: Key(title),
       onEnter: (_) => viewModel.onMouseEnter(title),
